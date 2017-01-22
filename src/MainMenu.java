@@ -2,9 +2,11 @@ import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,7 +15,7 @@ public class MainMenu extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
 	int screenWidth = 200;
-	int screenHeight = 275;
+	int screenHeight = 295;
 	
 	int buttonWidth = 100;
 	int buttonHeight = 40;
@@ -24,6 +26,7 @@ public class MainMenu extends JFrame {
 	JCheckBox twoPlayer, limitFrameRate;
 	static JTextField winScoreInput;
 	JRadioButton hardMode, normalMode, impossibleMode;
+	JLabel scoreLable;
 	
 	public MainMenu() {
 		
@@ -35,10 +38,11 @@ public class MainMenu extends JFrame {
 		Play.setBounds((screenWidth - buttonWidth) / 2, 5, buttonWidth, buttonHeight);
 		Quit.setBounds((screenWidth - buttonWidth) / 2, 50, buttonWidth, buttonHeight);
 		twoPlayer.setBounds(0, 95, buttonWidth, buttonHeight);
-		//winScoreInput.setBounds(0, 200, buttonWidth * 3, buttonHeight);		
+		winScoreInput.setBounds(0, 220, buttonWidth * 3, buttonHeight);		
 		hardMode.setBounds(0, 160, buttonWidth * 3, buttonHeight - 20);
 		normalMode.setBounds(0, 140, buttonWidth * 3, buttonHeight - 20);
 		impossibleMode.setBounds(0, 180, buttonWidth * 3, buttonHeight - 22);
+		scoreLable.setBounds(0, 200, buttonWidth * 3, 20);
 		normalMode.setSelected(true);
 		
 		ButtonGroup group = new ButtonGroup();
@@ -49,10 +53,11 @@ public class MainMenu extends JFrame {
 		getContentPane().add(Play);
 		getContentPane().add(Quit);
 		getContentPane().add(twoPlayer);
-		//getContentPane().add(winScoreInput);
+		getContentPane().add(winScoreInput);
 		getContentPane().add(hardMode);
 		getContentPane().add(normalMode);
 		getContentPane().add(impossibleMode);
+		getContentPane().add(scoreLable);
 		
 		pack();
 		setVisible(true);
@@ -68,10 +73,11 @@ public class MainMenu extends JFrame {
 		Play = new JButton("Play");
 		Quit = new JButton("Quit");
 		twoPlayer = new JCheckBox("2 Players?");
-		//winScoreInput = new JTextField("Points to Win: ");
+		winScoreInput = new JTextField();
 		hardMode = new JRadioButton("Enable Hard Mode");
 		normalMode = new JRadioButton("Enable Normal Mode");
 		impossibleMode = new JRadioButton("Enable Impossible Mode");
+		scoreLable = new JLabel("Score to Win:");
 	}
 	
 	public void addActions() {
@@ -90,7 +96,8 @@ public class MainMenu extends JFrame {
 				} else {
 					game.ai.isTwoPlayer = false;
 				}
-				//winScore = Integer.parseInt(winScoreInput.getText());
+				winScore = Integer.parseInt(winScoreInput.getText());
+				System.out.println(winScore);
 				if((normalMode.isSelected()) && (game.ai.isTwoPlayer == true)) {
 					game.ai.speed = 1;
 					game.ai.otherAI = false;

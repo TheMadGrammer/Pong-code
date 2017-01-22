@@ -59,11 +59,11 @@ public class Ball {
 	public void render(Graphics g, Game game) {
 		g.setColor(Color.white);
 		g.fillRect(x, y, size, size);
-		if(game.p1score == 10) {
+		if(game.p1score == MainMenu.winScore) {
 			g.drawString("Player 1 won the Game!!", 130, 100);
 			vx = 0;
 			vy = 0;
-		}else if(game.p2score == 10) {
+		}else if(game.p2score == MainMenu.winScore) {
 			g.drawString("Player 2 won the Game!!", 130, 100);
 			vx = 0;
 			vy = 0;
