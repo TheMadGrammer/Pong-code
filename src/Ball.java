@@ -63,7 +63,7 @@ public class Ball {
 			g.drawString("Player 1 won the Game!!", 130, 100);
 			vx = 0;
 			vy = 0;
-		}else if(game.p2score == MainMenu.winScore) {
+		}else if(game.p2score == MainMenu.winScore ) {
 			g.drawString("Player 2 won the Game!!", 130, 100);
 			vx = 0;
 			vy = 0;
