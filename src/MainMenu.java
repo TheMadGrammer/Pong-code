@@ -35,21 +35,21 @@ public class MainMenu extends JFrame {
 		Play.setBounds((screenWidth - buttonWidth) / 2, 5, buttonWidth, buttonHeight);
 		Quit.setBounds((screenWidth - buttonWidth) / 2, 50, buttonWidth, buttonHeight);
 		twoPlayer.setBounds(0, 95, buttonWidth, buttonHeight);
-		winScoreInput.setBounds(0, 200, buttonWidth * 3, buttonHeight);		
+		//winScoreInput.setBounds(0, 200, buttonWidth * 3, buttonHeight);		
 		hardMode.setBounds(0, 160, buttonWidth * 3, buttonHeight - 20);
 		normalMode.setBounds(0, 140, buttonWidth * 3, buttonHeight - 20);
 		impossibleMode.setBounds(0, 180, buttonWidth * 3, buttonHeight - 22);
 		normalMode.setSelected(true);
 		
 		ButtonGroup group = new ButtonGroup();
-		group.add(hardMode);
 		group.add(normalMode);
+		group.add(hardMode);
 		group.add(impossibleMode);
 		
 		getContentPane().add(Play);
 		getContentPane().add(Quit);
 		getContentPane().add(twoPlayer);
-		getContentPane().add(winScoreInput);
+		//getContentPane().add(winScoreInput);
 		getContentPane().add(hardMode);
 		getContentPane().add(normalMode);
 		getContentPane().add(impossibleMode);
@@ -68,7 +68,7 @@ public class MainMenu extends JFrame {
 		Play = new JButton("Play");
 		Quit = new JButton("Quit");
 		twoPlayer = new JCheckBox("2 Players?");
-		winScoreInput = new JTextField("Points to Win: ");
+		//winScoreInput = new JTextField("Points to Win: ");
 		hardMode = new JRadioButton("Enable Hard Mode");
 		normalMode = new JRadioButton("Enable Normal Mode");
 		impossibleMode = new JRadioButton("Enable Impossible Mode");
@@ -90,7 +90,7 @@ public class MainMenu extends JFrame {
 				} else {
 					game.ai.isTwoPlayer = false;
 				}
-				winScore = Integer.parseInt(winScoreInput.getText());
+				//winScore = Integer.parseInt(winScoreInput.getText());
 				if((normalMode.isSelected()) && (game.ai.isTwoPlayer == true)) {
 					game.ai.speed = 1;
 					game.ai.otherAI = false;
